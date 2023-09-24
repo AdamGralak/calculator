@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="JS/script.js"></script>
+    <link href="CSS/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body class="container">
+    <div>
+        <h1 class="header">Kalkulator walut</h1>
+        <form class="js-submit form">
+            <fieldset class="form__fieldset">
+                <legend class="form__legend">Kalkulator</legend>
+                <p>
+                    <label>
+                        Przelicz z:
+                        <select class="js-from form__input" name="calculateFrom">
+                            <option value="PLN" selected>PLN</option>
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                        </select>
+                    </label>
+                    <label>
+                        na:
+                        <select class="js-to form__input" name="calculateTo">
+                            <option value="PLN">PLN</option>
+                            <option value="USD">USD</option>
+                            <option value="EUR" selected>EUR</option>
+                        </select>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        Ilość:
+                        <input name="amount" class="js-amount form__input" required type="number" min="0" step="0.01"
+                            placeholder="Pole wymagane">
+                    </label>
+                </p>
+            </fieldset>
+            <button type="submit" class="form__button">Oblicz</button>
+        </form>
+        <p class="information">*Kurs walut z dnia 28 sierpnia 2023r.</p>
+        <p class="answer"><span class="js-result"></span></p>
+    </div>
+</body>
+
+</html>

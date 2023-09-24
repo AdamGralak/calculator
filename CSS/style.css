@@ -1,0 +1,76 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+.container {
+    background-color: #f3f3f3;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.header {
+    font-size: 34px;
+    margin: 20px;
+    font-weight: 700;
+    font-style: italic;
+    color: hsl(182, 25%, 30%);
+    padding-top: 20px;
+}
+
+.form {
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form__legend {
+    background-color: hsl(182, 25%, 30%);
+    color: hsl(0, 0%, 100%);
+    padding: 6px;
+    border-radius: 5px;
+}
+
+.form__fieldset{
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.form__input{
+    border-radius: 5px;
+    margin: 5px;
+    padding: 8px;
+}
+
+.form__button {
+    margin-top: 15px;
+    padding: 6px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1.5px solid hsl(0, 0%, 0%);
+    background-color: hsl(182, 25%, 30%);
+    color: hsl(0, 0%, 100%);
+}
+
+.form__button:hover {
+    background-color: hsl(182, 25%, 45%);
+}
+
+.answer {
+    padding: 4px;
+    color: hsl(182, 25%, 30%);
+    font-size: 20px;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.information {
+    font-size: 14px;
+    font-style: italic;
+}
