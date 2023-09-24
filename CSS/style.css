@@ -9,10 +9,16 @@ html {
 }
 
 .container {
-    background-color: #f3f3f3;
     font-family: 'Lato', sans-serif;
     text-align: center;
     margin: 0 auto;
+    background-image: url("../IMAGES/background.png");
+    resize: both;
+    overflow:auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .header {
