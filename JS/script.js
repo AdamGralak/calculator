@@ -1,62 +1,67 @@
-console.log("Witaj miło Cię znów zobaczyć!");
+{
+    const welcome = () => {
+        console.log("Witaj miło Cię znów zobaczyć!");
+    };
 
-let fromElement = document.querySelector(".js-from");
-let toElement = document.querySelector(".js-to");
-let amountElement = document.querySelector(".js-amount");
-let formElement = document.querySelector(".js-submit");
-let resultElement = document.querySelector(".js-result");
+    const calculate = (from, to, amount) => {
+        switch (from) {
 
-formElement.addEventListener("submit", (event) => {
-    event.preventDefault();
+            case "USD":
+                switch (to) {
+                    case "USD":
+                        return amount;
+                    case "EUR":
+                        return amount * 1.0807;
+                    case "PLN":
+                        return amount * 4.14;
+                }
 
-    let result;
-    let amount = +amountElement.value;
-    let from = fromElement.value;
-    let to = toElement.value;
+            case "EUR":
+                switch (to) {
+                    case "USD":
+                        return amount * 0.9249;
+                    case "EUR":
+                        return amount;
+                    case "PLN":
+                        return amount * 4.46;
+                }
 
-    switch (from) {
+            case "PLN":
+                switch (to) {
+                    case "USD":
+                        return amount / 4.14;
+                    case "EUR":
+                        return amount / 4.46;
+                    case "PLN":
+                        return amount;
+                }
+        }
+    };
 
-        case "USD":
-            switch (to) {
-                case "USD":
-                    result = amount;
-                    break;
-                case "EUR":
-                    result = amount * 1.0807;
-                    break;
-                case "PLN":
-                    result = amount * 4.14;
-                    break;
-            }
-            break;
+    const updateAnswer = (amount, from, result, to) => {
+        const resultElement = document.querySelector(".js-result");
+        resultElement.innerHTML = `${amount} ${from} to ${result.toFixed(2)} ${to}`;
+    };
 
-        case "EUR":
-            switch (to) {
-                case "USD":
-                    result = amount * 0.9249;
-                    break;
-                case "EUR":
-                    result = amount;
-                    break;
-                case "PLN":
-                    result = amount * 4.46;
-                    break;
-            }
-            break;
+    const onFormSubmit = (event) => {
+        event.preventDefault();
 
-        case "PLN":
-            switch (to) {
-                case "USD":
-                    result = amount / 4.14;
-                    break;
-                case "EUR":
-                    result = amount / 4.46;
-                    break;
-                case "PLN":
-                    result = amount;
-                    break;
-            }
-            break;
+        const toElement = document.querySelector(".js-to");
+        const amountElement = document.querySelector(".js-amount");
+        const fromElement = document.querySelector(".js-from");
+
+        const amount = +amountElement.value;
+        const from = fromElement.value;
+        const to = toElement.value;
+        const result = calculate(from, to, amount);
+
+        updateAnswer(amount, from, result, to);
     }
-    resultElement.innerHTML = `${amount} ${from} to ${result.toFixed(2)} ${to}`;
-});
+
+    const init = () => {
+        const formElement = document.querySelector(".js-submit");
+        formElement.addEventListener("submit", onFormSubmit);
+        welcome();
+    };
+    init();
+}
